@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WaveSync - Terms of Service</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      animation: colorchange 20s infinite;
+    }
+    @keyframes colorchange {
+      0% { color: #ff0000; }
+      25% { color: #00ffcc; }
+      50% { color: #ff00ff; }
+      75% { color: #ffff00; }
+      100% { color: #ff0000; }
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 250px;
+      height: 100%;
+      background: rgba(10,10,10,0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px;
+      transition: 0.3s;
+      z-index: 10;
+    }
+    nav.open {
+      right: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 18px;
+    }
+    .close-btn {
+      align-self: flex-end;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    .embed-container {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    .embed-container h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .embed-container ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .embed-container li {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WaveSync</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <nav id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">×</div>
+    <a href="index.html">Home</a>
+    <a href="docs.html">Documentation</a>
+    <a href="tos.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+
+  <div class="content">
+    <div class="embed-container">
+      <h1>Terms of Service</h1>
+      <ul>
+        <li>You are responsible for the use of the bot in your server.</li>
+        <li>WaveSync reserves the right to modify the terms at any time.</li>
+        <li>We are not responsible for any disruptions caused by the bot.</li>
+      </ul>
+      <p>If you have any questions, feel free to contact support.</p>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    function toggleMenu() {
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

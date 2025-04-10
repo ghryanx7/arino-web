@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WaveSync</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      animation: colorChange 6s infinite linear; /* Slowed down color change */
+    }
+    .hamburger {
+      cursor: pointer;
+      width: 30px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger div {
+      height: 4px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 250px;
+      height: 100%;
+      background: rgba(10,10,10,0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px;
+      transition: 0.3s;
+      z-index: 10;
+    }
+    nav.open {
+      right: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 18px;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 15%;
+    }
+    .center h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: colorChange 6s infinite linear; /* Slowed down color change */
+    }
+    .btn {
+      background: #007bff;
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Features Section */
+    .features {
+      margin: 50px 0;
+      padding: 20px;
+      background-color: rgba(10, 10, 10, 0.7);
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .feature-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .feature {
+      background: rgba(20, 20, 20, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+    .feature h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      font-size: 16px;
+    }
+
+    /* Team Section */
+    .team {
+      padding: 50px 20px;
+      background-color: rgba(20, 20, 20, 0.7);
+    }
+    .team h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .team-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      overflow-x: auto;
+    }
+    .team-card {
+      background: rgba(30, 30, 30, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+    }
+    .team-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .team-card h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .team-card p {
+      font-size: 16px;
+    }
+
+    /* Color Changing Animation */
+    @keyframes colorChange {
+      0% { color: #ff0000; }
+      25% { color: #00ff00; }
+      50% { color: #0000ff; }
+      75% { color: #ff00ff; }
+      100% { color: #ff0000; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <header>
+    <div class="logo">WaveSync</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <nav id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">×</div>
+    <a href="index.html">Home</a>
+    <a href="docs.html">Documentation</a>
+    <a href="tos.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+
+  <div class="center">
+    <h1>Welcome to WaveSync</h1>
+    <p>Feel the Beat with WaveSync – The Ultimate Music Experience on Discord</p>
+    <button class="btn" onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1314619845886611566&permissions=40928927731552&integration_type=0&scope=bot'">Invite</button>
+    <button class="btn" onclick="window.location.href='https://discord.gg/hawty'">Support</button>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features">
+    <h2>Features</h2>
+    <div class="feature-list">
+      <div class="feature">
+        <h3>High-Quality Music</h3>
+        <p>Enjoy the best sound quality with WaveSync, providing crystal-clear audio for your server.</p>
+      </div>
+      <div class="feature">
+        <h3>Easy to Use</h3>
+        <p>With a simple command interface, controlling your music has never been easier.</p>
+      </div>
+      <div class="feature">
+        <h3>24/7 Music</h3>
+        <p>Keep the music going non-stop, all day and night, with WaveSync's persistent playback.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  <div class="team">
+    <h2>Meet The Team</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <img src="logo.png" alt="Team Member 1">
+        <h3>just_hello.x</h3>
+        <p>1st Developer & Owner</p>
+      </div>
+      <div class="team-card">
+        <img src="logo2.png" alt="Team Member 2">
+        <h3>nishan</h3>
+        <p>Web Developer</p>
+      </div>
+      <div class="team-card">
+        <img src="logo3.png" alt="Team Member 3">
+        <h3>Afjal</h3>
+        <p>Developer's Friend</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    function toggleMenu() {
+      sidebar.classList.toggle('open');
+    }
+
+    // Animated canvas background
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+
+    let particles = Array.from({ length: 80 }, () => createParticle());
+
+    function createParticle() {
+      return {
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2 + 1,
+        speedX: Math.random() * 1 - 0.5,
+        speedY: Math.random() * 1 - 0.5,
+        hue: Math.random() * 360
+      };
+    }
+
+    function animate() {
+      ctx.fillStyle = 'rgba(10,10,10,0.2)';
+      ctx.fillRect(0, 0, w, h);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${p.hue}, 100%, 50%)`;
+        ctx.fill();
+
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.hue += 0.1;
+
+        if (p.x < 0 || p.x > w || p.y < 0 || p.y > h) {
+          Object.assign(p, createParticle());
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

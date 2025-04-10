@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WaveSync Documentation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      animation: colorchange 20s infinite;
+    }
+    @keyframes colorchange {
+      0% { color: #ff0000; }
+      25% { color: #00ffcc; }
+      50% { color: #ff00ff; }
+      75% { color: #ffff00; }
+      100% { color: #ff0000; }
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 250px;
+      height: 100%;
+      background: rgba(10,10,10,0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px;
+      transition: 0.3s;
+      z-index: 10;
+    }
+    nav.open {
+      right: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 18px;
+    }
+    .close-btn {
+      align-self: flex-end;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .content {
+      padding: 30px;
+    }
+    .content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WaveSync</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <nav id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">×</div>
+    <a href="index.html">Home</a>
+    <a href="docs.html">Documentation</a>
+    <a href="tos.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+
+  <div class="content">
+    <h1>WaveSync Documentation</h1>
+    <p>Welcome to the WaveSync documentation! Here you'll find all the information you need to get started and make the most of our music experience.</p>
+    <h2>Getting Started</h2>
+    <p>To start using WaveSync, simply invite the bot to your server and use the commands to control the music. Type `+help` to get a list of available commands.</p>
+    <h2>Features</h2>
+    <p>WaveSync offers various features like music playback, playlists, volume control, and more! Explore the bot commands to enhance your server's experience.</p>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    function toggleMenu() {
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
